@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+    <!-- proj4js library import -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.8.0/proj4.min.js"
+      integrity="sha512-pLnzlcFjcj9A9ggTfXZyscd+BWAV9pHdDrLekEoTimItxZI3uOAi7CSLXAHGZu7zRgG9Xyhl9bG3A1uRSJJOJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="./js/scripts.js" defer></script>
+    <title>Map</title>
+  </head>
+  <body>
+    <div class="main-content">
+      <div class="inputs-area">
+        <form action="#">
+          <label for="wkid-code">WKID Code:</label>
+          <input id="wkid-code" type="text" required />
+          <label for="x-coord">X:</label>
+          <input id="x-coord" type="text" required />
+          <label for="y-coord">Y:</label>
+          <input id="y-coord" type="text" required />
+          <button id="show-on-map-btn" type="submit">Show on map</button>
+        </form>
+      </div>
+      <div class="map-area">
+        <div id="map"></div>
+      </div>
+    </div>
+  </body>
+</html>
