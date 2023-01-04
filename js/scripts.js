@@ -26,7 +26,10 @@ const showOnmapBtnElement = document.getElementById("show-on-map-btn");
 // set event handlers
 showOnmapBtnElement.addEventListener("click", () => {
   // remove existing marker
-  map.removeLayer(marker)
+  if (marker){
+    map.removeLayer(marker)
+  }
+  
   // get html elements
   const wkidCodeElement = document.getElementById("wkid-code");
   let wkid = wkidCodeElement.value;
