@@ -18,18 +18,19 @@ async function fetchProjString(wkid) {
 }
 
 // get html elements
-const wkidCodeElement = document.getElementById("wkid-code");
-let wkid = wkidCodeElement.value;
-const xCoordElement = document.getElementById("x-coord");
-let xCoord = Number(xCoordElement.value);
-const yCoordElement = document.getElementById("y-coord");
-let yCoord = Number(yCoordElement.value);
 const showOnmapBtnElement = document.getElementById("show-on-map-btn");
 
 //fetchProjString(wkid).then((data) => console.log(data));
 
 // set event handlers
 showOnmapBtnElement.addEventListener("click", () => {
+  // get html elements
+  const wkidCodeElement = document.getElementById("wkid-code");
+  let wkid = wkidCodeElement.value;
+  const xCoordElement = document.getElementById("x-coord");
+  let xCoord = Number(xCoordElement.value);
+  const yCoordElement = document.getElementById("y-coord");
+  let yCoord = Number(yCoordElement.value);
   // get proj string
   let projString = "";
   fetchProjString(wkid).then((data) => {
