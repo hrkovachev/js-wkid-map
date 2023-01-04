@@ -1,4 +1,5 @@
 let map = L.map("map").setView([48.563271, 11.259328], 13);
+let marker;
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
@@ -24,6 +25,8 @@ const showOnmapBtnElement = document.getElementById("show-on-map-btn");
 
 // set event handlers
 showOnmapBtnElement.addEventListener("click", () => {
+  // remove existing marker
+  map.removeLayer(marker)
   // get html elements
   const wkidCodeElement = document.getElementById("wkid-code");
   let wkid = wkidCodeElement.value;
@@ -51,6 +54,6 @@ showOnmapBtnElement.addEventListener("click", () => {
 
     map.setView([transformedArr[1], transformedArr[0], 13]);
 
-    let marker = L.marker([transformedArr[1], transformedArr[0]]).addTo(map);
+    marker = L.marker([transformedArr[1], transformedArr[0]]).addTo(map);
   });
 });
