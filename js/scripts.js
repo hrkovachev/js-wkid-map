@@ -19,23 +19,34 @@ async function fetchProjString(wkid) {
 }
 
 // get html elements
+const wkidCodeElement = document.getElementById("wkid-code");
+const xCoordElement = document.getElementById("x-coord");
+const yCoordElement = document.getElementById("y-coord");
 const showOnmapBtnElement = document.getElementById("show-on-map-btn");
+const changeXYButton = document.getElementById("change-x-y");
 
 //fetchProjString(wkid).then((data) => console.log(data));
 
 // set event handlers
-showOnmapBtnElement.addEventListener("click", () => {
+showOnmapBtnElement.addEventListener("click", showOnMapHandler);
+document.querySelector('body').addEventListener("keydown", (e) => {
+  if (e.key === "Enter"){
+    showOnMapHandler()
+  }
+})
+
+function showOnMapHandler(e) {
   // remove existing marker
-  if (marker){
+  if (marker) {
     map.removeLayer(marker)
   }
-  
+
   // get html elements
-  const wkidCodeElement = document.getElementById("wkid-code");
+
   let wkid = wkidCodeElement.value;
-  const xCoordElement = document.getElementById("x-coord");
+
   let xCoord = Number(xCoordElement.value);
-  const yCoordElement = document.getElementById("y-coord");
+
   let yCoord = Number(yCoordElement.value);
   // get proj string
   let projString = "";
@@ -59,4 +70,10 @@ showOnmapBtnElement.addEventListener("click", () => {
 
     marker = L.marker([transformedArr[1], transformedArr[0]]).addTo(map);
   });
-});
+}
+
+
+// add change coords event listener
+changeXYButton.addEventListener("click", () => {
+  [xCoordElement.value, yCoordElement.value] = [yCoordElement.value, xCoordElement.value]
+})
